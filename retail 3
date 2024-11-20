@@ -1,0 +1,46 @@
+// Almazan, Dhen Kerby V 
+// CC2 B
+// Retail Store Invetory
+
+
+import java.util.Scanner;
+
+public class RetailStoreInventory {
+
+    public static void main(String[] args) {
+
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Define arrays to store product stock quantities and prices
+        int[] stockLevels = new int[10];  // Array for stock quantities
+        double[] productPrices = new double[10];  // Array for product prices
+        
+        // Input stock levels and prices for 10 products
+        System.out.println("Enter stock levels and prices for 10 products:");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Enter stock level for Product " + (i + 1) + ": ");
+            stockLevels[i] = scanner.nextInt();  // Get the stock level input
+
+            System.out.print("Enter price for Product " + (i + 1) + ": $");
+            productPrices[i] = scanner.nextDouble();  // Get the price input
+        }
+
+        // Variable to store the total value of the stock
+        double totalValue = 0.0;
+
+        // Loop through each product to calculate the total stock value
+        for (int i = 0; i < stockLevels.length; i++) {
+            double productValue = stockLevels[i] * productPrices[i];  // Calculate value for each product
+            totalValue += productValue;  // Add to total value
+            System.out.println("Product " + (i + 1) + ": Stock = " + stockLevels[i] + ", Price = $" + productPrices[i] + ", Value = $" + productValue);
+        }
+
+        // Print the total value of all stock
+        System.out.println("\nTotal value of all stock: $" + totalValue);
+
+        // Close the scanner to prevent resource leak
+        scanner.close();
+    }
+}
